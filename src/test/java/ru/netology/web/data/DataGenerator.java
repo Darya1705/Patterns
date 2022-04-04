@@ -10,11 +10,12 @@ import java.util.Random;
 public class DataGenerator {
     private DataGenerator() {
     }
+
     static Faker faker = new Faker(new Locale("ru-RU"));
 
     public static String generateName() {
         Faker faker = new Faker(new Locale("ru"));
-        return faker.name().fullName().replaceAll("ё","е");
+        return faker.name().fullName().replaceAll("ё", "е");
 
     }
 
@@ -24,12 +25,12 @@ public class DataGenerator {
         return phone;
     }
 
-   public static String[] cities = new String[] {
-           "Абакан", "Волгоград", "Вологда", "Кемерово", "Майкоп",
+    public static String[] cities = new String[]{
+            "Абакан", "Волгоград", "Вологда", "Кемерово", "Майкоп",
             "Москва", "Санкт-Петербург", "Самара", "Смоленск", "Тамбов"
     };
 
-       public static String generateCity() {
+    public static String generateCity() {
         Random generator = new Random();
         int randomIndex = generator.nextInt(10);
         return cities[randomIndex];
@@ -39,6 +40,7 @@ public class DataGenerator {
         String date = LocalDate.now().plusDays(days).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
         return date;
     }
+}
 
 
 
