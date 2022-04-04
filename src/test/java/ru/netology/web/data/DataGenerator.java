@@ -14,7 +14,6 @@ public class DataGenerator {
 
     public static String generateName() {
         Faker faker = new Faker(new Locale("ru"));
-       // String name = faker.name().fullName();
         return faker.name().fullName().replaceAll("ё","е");
 
     }
@@ -36,43 +35,10 @@ public class DataGenerator {
         return cities[randomIndex];
     }
 
-
-
-
     public static String generateDate(int days) {
         String date = LocalDate.now().plusDays(days).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
         return date;
     }
-
-    //public static class Registration {
-    //  public static UserInfo generateUser() {
-    //   UserInfo user = new UserInfo(
-    //    generateName(),
-    //      generatePhone(),
-    //        generateCity()
-    //  );
-    //    return user;
-    //  }
-    //}
-
-    //  @Value
-    //public static class UserInfo {
-    //  String name;
-    //String phone;
-    //   String city;
-    //}
-}
-
-
-//   public static RegistrationByCardInfo generateByCard(String Locale) {
-//     Faker faker = new Faker(new Locale(Locale));
-//   {
-//     return new RegistrationByCardInfo(
-//           faker.city().Сity("Москва").
-//                 faker.name().fullName().
-//               LocalDate.now().plusDays(3)
-//);
-
 
 
 
