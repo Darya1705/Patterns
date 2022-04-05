@@ -1,6 +1,7 @@
 package ru.netology.web.data;
 
 import com.github.javafaker.Faker;
+import lombok.Value;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -39,13 +40,18 @@ public class DataGenerator {
         String date = LocalDate.now().plusDays(days).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
         return date;
     }
+
+    public static RegistrationInfo getUser() {
+        RegistrationInfo user = new RegistrationInfo(generateCity(), generateName(), generatePhone());
+        return user;
+    }
+
+    @Value
+    public static class RegistrationInfo {
+        String login;
+        String password;
+        String status;
+
+    }
 }
-
-
-
-
-
-
-
-
 
